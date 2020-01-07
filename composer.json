@@ -10,7 +10,7 @@
     },
     "autoload": {
         "psr-4": {
-            "EspressoDev\\InstagramBasicDisplay\\": "src"
+            "EspressoDev\\InstagramBasicDisplay\\": "src/"
         }
     },
     "license": "MIT",
