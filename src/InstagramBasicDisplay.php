@@ -22,9 +22,11 @@ class InstagramBasicDisplay
 
     private $_scopes = ['user_profile', 'user_media'];
 
-    private $_mediaFields = 'caption, id, media_type, media_url, permalink, thumbnail_url, timestamp, username';
-    
     private $_userFields = 'account_type, id, media_count, username';
+
+    private $_mediaFields = 'caption, id, media_type, media_url, permalink, thumbnail_url, timestamp, username, children{id, media_type, media_url, permalink, thumbnail_url, timestamp, username}';
+
+    private $_mediaChildrenFields = 'id, media_type, media_url, permalink, thumbnail_url, timestamp, username';
 
     private $_timeout = 90000;
 
@@ -68,10 +70,10 @@ class InstagramBasicDisplay
             $id = 'me';
         }
 
-        return $this->_makeCall($id, [ 'fields' => $this->_userFields ]);
+        return $this->_makeCall($id, ['fields' => $this->_userFields]);
     }
 
-    public function getUserMedia($id = 'me', $limit = 0)
+    public function getUserMedia($id = 'me', $limit = 0, $before = null, $after = null)
     {
         $params = [
             'fields' => $this->_mediaFields
@@ -80,8 +82,24 @@ class InstagramBasicDisplay
         if ($limit > 0) {
             $params['limit'] = $limit;
         }
+        if (isset($before)) {
+            $params['before'] = $before;
+        }
+        if (isset($after)) {
+            $params['after'] = $after;
+        }
 
         return $this->_makeCall($id . '/media', $params);
+    }
+
+    public function getMedia($id)
+    {
+        return $this->_makeCall($id, ['fields' => $this->_mediaFields]);
+    }
+
+    public function getMediaChildren($id)
+    {
+        return $this->_makeCall($id . '/children', ['fields' => $this->_mediaChildrenFields]);
     }
 
     public function pagination($obj)
@@ -248,6 +266,21 @@ class InstagramBasicDisplay
     public function getRedirectUri()
     {
         return $this->_redirectUri;
+    }
+
+    public function setUserFields($fields)
+    {
+        $this->_userFields = $fields;
+    }
+
+    public function setMediaFields($fields)
+    {
+        $this->_mediaFields = $fields;
+    }
+
+    public function setMediaChildrenFields($fields)
+    {
+        $this->_mediaChildrenFields = $fields;
     }
 
     public function setTimeout($timeout)
