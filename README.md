@@ -78,7 +78,7 @@ echo '<pre>';
 
 `new Instagram(<array>/<string>);`
 
-`array` if you want to authenticate a user and access its data:
+`array` if you want to perform oAuth:
 
 ```php
 new InstagramBasicDisplay([
@@ -88,7 +88,7 @@ new InstagramBasicDisplay([
 ]);
 ```
 
-`string` for *read-only* data:
+`string` once you have a token and just want to return *read-only* data:
 
 ```php
 new InstagramBasicDisplay('ACCESS_TOKEN');
