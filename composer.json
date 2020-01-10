@@ -5,7 +5,7 @@
     "homepage": "https://github.com/espresso-dev/instagram-basic-display-php",
     "type": "library",
     "require": {
-        "php": ">=7.2.0",
+        "php": ">=7",
         "ext-curl": "*"
     },
     "autoload": {

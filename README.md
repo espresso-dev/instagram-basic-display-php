@@ -10,7 +10,7 @@ A simple PHP wrapper for the Instagram Basic Display API. Based on the [Instagra
 
 ## Requirements
 
-- PHP 7.2 or higher
+- PHP 7 or higher
 - cURL
 - Facebook Developer Account
 - Facebook App
