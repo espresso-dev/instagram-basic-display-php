@@ -11,6 +11,8 @@ class InstagramBasicDisplay
     const API_OAUTH_TOKEN_URL = 'https://api.instagram.com/oauth/access_token';
     
     const API_TOKEN_EXCHANGE_URL = 'https://graph.instagram.com/access_token';
+    
+    const API_TOKEN_REFRESH_URL = 'https://graph.instagram.com/refresh_access_token';
 
     private $_appId;
 
@@ -151,6 +153,18 @@ class InstagramBasicDisplay
         );
 
         $result = $this->_makeOAuthCall(self::API_TOKEN_EXCHANGE_URL, $apiData, 'GET');
+
+        return !$tokenOnly ? $result : $result->access_token;
+    }
+
+    public function refreshToken($token, $tokenOnly = false)
+    {
+        $apiData = array(
+            'grant_type' => 'ig_refresh_token',
+            'access_token' => $token
+        );
+
+        $result = $this->_makeOAuthCall(self::API_TOKEN_REFRESH_URL, $apiData, 'GET');
 
         return !$tokenOnly ? $result : $result->access_token;
     }

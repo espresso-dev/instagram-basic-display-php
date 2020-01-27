@@ -119,6 +119,13 @@ getLoginUrl(array(
 `true` : Returns only the OAuth token  
 `false` *[default]* : Returns OAuth token and profile data of the authenticated user
 
+### Refresh access token for another 60 days before it expires
+
+`refreshToken($token, <true>/<false>)`
+
+`true` : Returns only the OAuth token  
+`false` *[default]* : Returns OAuth token and expiry data of the token
+
 ### Set / Get access token
 
 - Set the access token, for further method calls: `setAccessToken($token)`
