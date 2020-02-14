@@ -96,13 +96,16 @@ new InstagramBasicDisplay('ACCESS_TOKEN');
 
 ### Get login URL
 
-`getLoginUrl(<array>)`
+`getLoginUrl(<array>, <string>)`
 
 ```php
-getLoginUrl(array(
-    'user_profile', 
-    'user_media'
-));
+getLoginUrl(
+    array(
+        'user_profile', 
+        'user_media'
+    ),
+    'state'
+);
 ```
 
 ### Get OAuth token (Short lived valid for 1 hour)
