@@ -56,11 +56,11 @@ class InstagramBasicDisplay
         }
     }
 
-    public function getLoginUrl($scopes = ['user_profile', 'user_media'])
+    public function getLoginUrl($scopes = ['user_profile', 'user_media'], $state = '')
     {
         if (is_array($scopes) && count(array_intersect($scopes, $this->_scopes)) === count($scopes)) {
             return self::API_OAUTH_URL . '?app_id=' . $this->getAppId() . '&redirect_uri=' . urlencode($this->getRedirectUri()) . '&scope=' . implode(',',
-                $scopes) . '&response_type=code';
+                $scopes) . '&response_type=code' . ($state != '' ? '&state=' . $state : '');
         }
 
         throw new InstagramBasicDisplayException("Error: getLoginUrl() - The parameter isn't an array or invalid scope permissions used.");
