@@ -264,12 +264,12 @@ class InstagramBasicDisplay
 
     public function setAppSecret($appSecret)
     {
-        $this->_appsecret = $appSecret;
+        $this->_appSecret = $appSecret;
     }
 
     public function getAppSecret()
     {
-        return $this->_appsecret;
+        return $this->_appSecret;
     }
 
     public function setRedirectUri($redirectUri)
