@@ -108,13 +108,13 @@ class InstagramBasicDisplay
     {
         if (is_object($obj) && !is_null($obj->paging)) {
             if (!isset($obj->paging->next)) {
-                return;
+                return null;
             }
 
             $apiCall = explode('?', $obj->paging->next);
 
             if (count($apiCall) < 2) {
-                return;
+                return null;
             }
 
             $function = str_replace(self::API_URL, '', $apiCall[0]);
