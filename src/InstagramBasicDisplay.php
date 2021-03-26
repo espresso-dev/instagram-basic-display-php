@@ -13,9 +13,9 @@ class InstagramBasicDisplay
     const API_OAUTH_URL = 'https://api.instagram.com/oauth/authorize';
 
     const API_OAUTH_TOKEN_URL = 'https://api.instagram.com/oauth/access_token';
-    
+
     const API_TOKEN_EXCHANGE_URL = 'https://graph.instagram.com/access_token';
-    
+
     const API_TOKEN_REFRESH_URL = 'https://graph.instagram.com/refresh_access_token';
 
     /**
@@ -79,13 +79,13 @@ class InstagramBasicDisplay
             $this->setAppId($config['appId']);
             $this->setAppSecret($config['appSecret']);
             $this->setRedirectUri($config['redirectUri']);
-            
+
             if (isset($config['timeout'])) {
-                $this->setTimeout($config['timeout']);    
+                $this->setTimeout($config['timeout']);
             }
-            
+
             if (isset($config['connectTimeout'])) {
-                $this->setConnectTimeout($config['connectTimeout']);    
+                $this->setConnectTimeout($config['connectTimeout']);
             }
         } elseif (is_string($config)) {
             // For read-only
