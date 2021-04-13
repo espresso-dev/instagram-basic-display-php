@@ -211,8 +211,8 @@ class InstagramBasicDisplay
     public function getOAuthToken($code, $tokenOnly = false)
     {
         $apiData = array(
-            'app_id' => $this->getAppId(),
-            'app_secret' => $this->getAppSecret(),
+            'client_id' => $this->getAppId(),
+            'client_secret' => $this->getAppSecret(),
             'grant_type' => 'authorization_code',
             'redirect_uri' => $this->getRedirectUri(),
             'code' => $code
