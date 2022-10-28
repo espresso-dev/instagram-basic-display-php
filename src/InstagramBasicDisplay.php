@@ -294,13 +294,14 @@ class InstagramBasicDisplay
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_HEADER, true);
 
-        $jsonData = curl_exec($ch);
+        $response = curl_exec($ch);
 
-        if (!$jsonData) {
+        if (!$response) {
             throw new InstagramBasicDisplayException('Error: _makeCall() - cURL error: ' . curl_error($ch), curl_errno($ch));
         }
 
-        list($headerContent, $jsonData) = explode("\r\n\r\n", $jsonData, 2);
+        $responseParts = explode("\r\n\r\n", $response);
+        $jsonData = $responseParts[array_key_last($responseParts)];
 
         curl_close($ch);
 
