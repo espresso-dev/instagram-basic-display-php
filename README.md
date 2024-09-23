@@ -1,3 +1,5 @@
+*As the Instagram Basic Display API will be deprecated on December 4, 2024 [https://developers.facebook.com/docs/instagram-basic-display-api/](https://developers.facebook.com/docs/instagram-basic-display-api/) this package is no longer maintained. Please use the [Instagram API PHP](https://github.com/espresso-dev/instagram-php) package instead.*
+
 # Instagram Basic Display PHP API
 
 A simple PHP wrapper for the Instagram Basic Display API. Based on the [Instagram-PHP-API](https://github.com/cosenary/Instagram-PHP-API) by [Christian Metz](http://metzweb.net)
